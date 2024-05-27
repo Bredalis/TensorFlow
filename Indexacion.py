@@ -1,9 +1,8 @@
 
-# Libreria
-
 import tensorflow as tf
 
 # Indexacion
+
 a = tf.constant([1, 2, 3, 12, 5, 14, 22, 28])
 
 print("Primero:", a[0])
@@ -18,6 +17,7 @@ print("Todos los otros articulos:", a[::2].numpy())
 print("Reversa:", a[::-1].numpy())
 
 # Obtener filas y columnas de los tensores (matrices)
+
 b = tf.constant([[1, 2], [3, 4]])
 
 print("\n", b[1, 1])
