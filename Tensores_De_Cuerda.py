@@ -1,19 +1,18 @@
 
-# Libreria
-
 import tensorflow as tf
 
-# Tensores de cuerda
-
 tensor_strings = tf.constant(["Hello World", "Hi", "TensorFlow"])
+print("Tensor de cadenas:\n", tensor_strings)
 
-print("Tensor de cuerda: \n", tensor_strings)
-print("\nTensor separado por espacios: \n", 
-	tf.strings.split(tensor_strings, sep = " "))
+# Dividir cada cadena por espacios
+split_strings = tf.strings.split(tensor_strings, sep = " ")
+print("\nTensor dividido por espacios:\n", split_strings)
 
-# Pasar de tensor string a int
+# Convertir un tensor de texto a enteros
+numeric_text = tf.constant("1 10 100")
+print("\nTexto como tensor:\n", numeric_text)
 
-texto = tf.constant("1 10 100")
-print("\n", texto)
-
-print(tf.strings.to_number(tf.strings.split(texto, " ")))
+# Convertir el texto en números
+split_numbers = tf.strings.split(numeric_text, sep = " ")
+converted_numbers = tf.strings.to_number(split_numbers)
+print("\nTexto convertido a números:\n", converted_numbers)

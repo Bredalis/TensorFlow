@@ -1,29 +1,26 @@
 
 import tensorflow as tf
 
-# Indexacion
+tensor_1d = tf.constant([1, 2, 3, 12, 5, 14, 22, 28])
 
-a = tf.constant([1, 2, 3, 12, 5, 14, 22, 28])
+print("Primero:", tensor_1d[0])
+print("Segundo:", tensor_1d[1])
+print("Último:", tensor_1d[-1])
 
-print("Primero:", a[0])
-print("Segundo:", a[1])
-print("Ultimo:", a[-1])
+# Manipulación del tensor 1d
+print("\nTodos:", tensor_1d[:].numpy())
+print("Antes de la posición 4:", tensor_1d[:4].numpy())
+print("De la posición 4 al final:", tensor_1d[4:].numpy())
+print("De 2 antes de 7:", tensor_1d[2:7].numpy())
+print("Todos los otros artículos:", tensor_1d[::2].numpy())
+print("Reversa:", tensor_1d[::-1].numpy())
 
-print("\nTodos:", a[:].numpy())
-print("Antes de la posicion 4:", a[:4].numpy())
-print("De la posicion 4 al final:", a[4:].numpy())
-print("De 2 antes de 7:", a[2:7].numpy())
-print("Todos los otros articulos:", a[::2].numpy())
-print("Reversa:", a[::-1].numpy())
+tensor_2d = tf.constant([[1, 2], [3, 4]])
 
-# Obtener filas y columnas de los tensores (matrices)
-
-b = tf.constant([[1, 2], [3, 4]])
-
-print("\n", b[1, 1])
-
-print(f"\nSegunda fila: {b[1, :].numpy()}")
-print(f"Segunda columna: {b[:, 1].numpy()}")
-print(f"Ultima fila: {b[-1, :].numpy()}")
-print(f"Primer articulo de la ultima columna: {b[-1, 0].numpy()}")
-print(f"Saltando la primera fila: {b[1:, :].numpy()}")
+# Manipulación del tensor 2d
+print(tensor_2d[1, 1])
+print(f"\nSegunda fila: {tensor_2d[1, :].numpy()}")
+print(f"Segunda columna: {tensor_2d[:, 1].numpy()}")
+print(f"Última fila: {tensor_2d[-1, :].numpy()}")
+print(f"Primer artículo de la última columna: {tensor_2d[-1, 0].numpy()}")
+print(f"Saltando la primera fila: {tensor_2d[1:, :].numpy()}")
