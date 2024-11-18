@@ -1,19 +1,23 @@
 
 import tensorflow as tf
 
-# Estructura del tensor
-
+# Crear un tensor disperso
 tensor_disperso = tf.sparse.SparseTensor(
-    indices = [[0, 0], [1, 2]], values = [1, 2], dense_shape = [3, 4])
+    indices = [[0, 0], [1, 2]], 
+    values = [1, 2],
+    dense_shape = [3, 4]
+)
 
-print(f"Tensor de dispersion: \n{tensor_disperso}")
-print("\n", tf.sparse.to_dense(tensor_disperso))
+# Mostrar el tensor disperso y convertirlo a denso
+print("Tensor disperso:\n", tensor_disperso)
+tensor_denso = tf.sparse.to_dense(tensor_disperso)
+print("\nTensor convertido a denso:\n", tensor_denso)
 
-# Convirtiendo de strings a bytes
+# Convertir cadenas de texto a bytes y enteros
+string_tensor = tf.constant("HOLA")
+bytes_divididos = tf.strings.bytes_split(string_tensor)
+bytes_enteros = tf.io.decode_raw(string_tensor, tf.uint8)
 
-bytes_strings = tf.strings.bytes_split(tf.constant("HOLA"))
-bytes_ints = tf.io.decode_raw(tf.constant("HOLA"), tf.uint8)
-
-print("\nStrings - Bytes\n")
-print(bytes_strings)
-print(bytes_ints)
+print("\nConversión de cadenas a bytes y enteros:")
+print("Bytes divididos:", bytes_divididos)
+print("Bytes como enteros:", bytes_enteros)
